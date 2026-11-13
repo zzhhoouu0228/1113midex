@@ -100,29 +100,45 @@
 
 \begin{document}
 \begin{titlepage}
+  \thispagestyle{empty}
+  \begin{tikzpicture}[remember picture,overlay]
+    \fill[navy] (current page.north west) rectangle ([yshift=-9.5cm]current page.north east);
+    \fill[linegreen] ([yshift=-9.5cm]current page.north west) rectangle ([yshift=-9.64cm]current page.north east);
+    \fill[linegreen,opacity=0.13] ([xshift=-1.2cm,yshift=-1.6cm]current page.north east) circle (3.0cm);
+    \fill[white,opacity=0.045] ([xshift=-2.0cm,yshift=-2.0cm]current page.north east) circle (4.0cm);
+    \fill[navy] (current page.south west) rectangle ([yshift=3.0cm]current page.south east);
+    \draw[white,opacity=0.3] ([xshift=2.5cm,yshift=2.35cm]current page.south west) -- ([xshift=-2.5cm,yshift=2.35cm]current page.south east);
+    \node[anchor=south west,align=left,text=white] at ([xshift=2.5cm,yshift=0.75cm]current page.south west)
+      {\small 課程：專業排版與設計\\[4pt]\large 學號：413631655\quad 作者：簡宏洲};
+    \node[anchor=south east,align=right,text=white] at ([xshift=-2.5cm,yshift=0.75cm]current page.south east)
+      {\small 作業專題\\[4pt]\large 2026 年 11 月 13 日};
+  \end{tikzpicture}
   \centering
-  \vspace*{2cm}
-  {\color{linegreen}\rule{0.82\textwidth}{2pt}}\\[1.2cm]
-  {\Huge\bfseries LINE Messaging API\\[0.35cm]註冊申請與實作教學\par}
-  \vspace{0.7cm}
-  {\Large 從官方帳號設定到 Webhook Echo Bot\par}
-  \vspace{1.3cm}
-  \begin{tikzpicture}[node distance=1.1cm, every node/.style={rounded corners,draw=linegreen,thick,fill=linegreen!6,minimum width=3.0cm,minimum height=0.8cm,font=\large}]
-    \node (user) {LINE 使用者};
-    \node[right=of user] (platform) {LINE Platform};
-    \node[right=of platform] (server) {Bot 伺服器};
-    \draw[-{Stealth},thick] (user) -- node[above,draw=none,fill=white,font=\small]{訊息} (platform);
-    \draw[-{Stealth},thick] (platform) -- node[above,draw=none,fill=white,font=\small]{Webhook} (server);
-    \draw[-{Stealth},thick] (server.south) -- ++(0,-0.65) -| node[pos=0.25,below,draw=none,fill=white,font=\small]{Reply API} (platform.south);
+  \vspace*{0.4cm}
+  \begin{flushleft}
+    {\small\bfseries\color{linegreen} 專業排版與設計\quad /\quad 期中專題}\par
+    \vspace{0.6cm}
+    {\Huge\bfseries\color{white} LINE Messaging API\par}
+    \vspace{0.2cm}
+    {\huge\bfseries\color{white} 註冊申請與實作教學\par}
+    \vspace{0.2cm}
+    {\large\color{white!82} 從官方帳號設定到第一個 Python Echo Bot\par}
+  \end{flushleft}
+  \vspace{2.1cm}
+  {\large\bfseries\color{navy} 學習路徑}\par
+  \vspace{0.45cm}
+  \begin{tikzpicture}[
+    node distance=0.62cm,
+    flowcard/.style={draw=black!12,rounded corners=5pt,fill=white,minimum width=4.25cm,minimum height=2.8cm,text width=3.75cm,align=center,inner sep=0.15cm},
+    flowarrow/.style={-{Stealth[length=2.2mm]},draw=linegreen,thick}
+  ]
+    \node[flowcard] (account) {\small\bfseries\color{linegreen} STEP 01\\[5pt]\large\bfseries\color{navy} 建立官方帳號\\[3pt]\small\normalfont\color{black!65}準備 Provider 與 Channel};
+    \node[flowcard,right=of account] (webhook) {\small\bfseries\color{linegreen} STEP 02\\[5pt]\large\bfseries\color{navy} 設定 Webhook\\[3pt]\small\normalfont\color{black!65}安全接收 LINE 事件};
+    \node[flowcard,right=of webhook] (bot) {\small\bfseries\color{linegreen} STEP 03\\[5pt]\large\bfseries\color{navy} Echo Bot 實作\\[3pt]\small\normalfont\color{black!65}驗證後回覆文字訊息};
+    \draw[flowarrow] (account)--(webhook);
+    \draw[flowarrow] (webhook)--(bot);
   \end{tikzpicture}
   \vfill
-  {\Large 課程：專業排版與設計\par}
-  \vspace{0.4cm}
-  {\large 學號：413631655\qquad 作者：簡宏洲\par}
-  \vspace{0.4cm}
-  {\large 2026 年 11 月 13 日\par}
-  \vspace{0.8cm}
-  {\color{linegreen}\rule{0.82\textwidth}{2pt}}
 \end{titlepage}
 \pagenumbering{roman}
 
